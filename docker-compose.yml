@@ -1,0 +1,42 @@
+version: "3.8"
+ 
+services:
+  backend:
+    build:
+      context: "./simpleapi"
+    networks:
+      - app-network
+    depends_on:
+      - database
+ 
+  database:
+    build:
+      context: ./postgres
+    networks:
+      - app-network
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+ 
+  httpd:
+    build:
+      context: ./Http_server    
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+  adminer:
+    image: adminer
+    networks:
+      - app-network
+    depends_on:
+      - database
+ 
+ 
+networks:
+  app-network:
+ 
+volumes:
+  pgdata:
+ 
