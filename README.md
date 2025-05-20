@@ -89,5 +89,51 @@ A multistage build is necessary when you have multiple stages of your applicatio
 * Layer caching: In a multistage build, each stage creates its own layer in the Docker image. This means that if a particular dependency changes between two stages, only the new layer needs to be updated, rather than re-downloading all previous layers.
 * Reduced image size: By separating the builds into different stages, you can avoid including unnecessary dependencies or code that is not needed for subsequent stages.
 * Improved build efficiency: Multistage builds allow you to parallelize your build process, which can significantly improve the time it takes to compile and package your application.
-     
- 
+
+
+**1-5 Why do we need a reverse proxy?**
+
+A reverse proxy is a server that sits between client devices and backend servers, and it forwards client requests to those servers. Here's why we need a reverse proxy, with 5 key reasons:
+
+1. Load Balancing
+
+A reverse proxy can distribute incoming traffic across multiple backend servers to prevent any single server from being overwhelmed. This improves performance and reliability.
+2. Security and Anonymity
+
+It hides the identity and structure of backend servers from the outside world, adding a layer of protection against attacks (like DDoS). It can also enforce security policies like IP whitelisting or rate limiting.
+3. SSL Termination
+
+Handling SSL/TLS encryption at the reverse proxy level offloads the CPU-intensive work from backend servers, simplifying certificate management and improving performance.
+4. Caching and Compression
+
+It can cache static content (like images or CSS files) and compress responses before sending them to clients, reducing load times and saving bandwidth.
+5. Centralized Authentication and Logging
+
+A reverse proxy can manage authentication, logging, and access control for multiple services, making it easier to maintain and audit.
+
+**2-1 What are testcontainers?**
+
+Testcontainers is a library that allows you to use Docker containers in your automated tests, primarily for integration and end-to-end testing.
+In simple terms:
+
+Testcontainers lets you spin up real instances of databases, message brokers, web servers, etc., in Docker containers as part of your test suite—so you can test against actual services instead of mocks.
+Why use Testcontainers?
+
+* Realistic Testing
+* Test against real versions of services like PostgreSQL, Redis, Kafka, etc., ensuring your code works in production-like environments.
+
+* Isolation
+* Each test can run with a clean instance of a service, reducing test flakiness due to shared state.
+
+* Automation
+* No need to manually set up and tear down services—Testcontainers handles that for you.
+
+* Cross-language Support
+* 
+Originally for Java, now also available in other languages:
+
+* Java: testcontainers-java
+
+* Python: testcontainers-python
+
+* Node.js: testcontainers-node
