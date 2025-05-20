@@ -1,9 +1,9 @@
-version: "3.8"
- 
 services:
   backend:
     build:
       context: "./simpleapi"
+    ports:
+      - "8080:8080"
     networks:
       - app-network
     depends_on:
@@ -11,7 +11,7 @@ services:
  
   database:
     build:
-      context: ./postgres
+      context: "./postgres"
     networks:
       - app-network
     volumes:
@@ -19,19 +19,13 @@ services:
  
   httpd:
     build:
-      context: ./Http_server    
+      context: "./Http_server"    
     ports:
       - "80:80"
     networks:
       - app-network
     depends_on:
       - backend
-  adminer:
-    image: adminer
-    networks:
-      - app-network
-    depends_on:
-      - database
  
  
 networks:
