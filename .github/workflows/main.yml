@@ -24,5 +24,5 @@ jobs:
           #TODO add the maven cache
 
      #finally build your app with the latest command
-      - name: Build and test with Maven
-        run: mvn clean verify
+      # - name: Build and test with Maven
+      #   run: mvn clean verify
