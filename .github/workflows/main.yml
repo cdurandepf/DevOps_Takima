@@ -43,10 +43,10 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: 
           # Note: tags has to be all lower-case
-          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
+          tags:  ${{secrets.DOCKERHUB_USERNAME}}/simpleapi:latest
 
-      # - name: Build image and push database
-      #     # DO the same for database
+        # - name: Build image and push database
+        #     # DO the same for database
 
-      # - name: Build image and push httpd
-      #   # DO the same for httpd
+        # - name: Build image and push httpd
+        #   # DO the same for httpd
